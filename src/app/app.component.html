@@ -1,2 +1,54 @@
 <h1 class="ms-5 mb-5">Forms composer</h1>
-<p>Builder</p>
+
+<div class="container-fluid">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <input
+            matInput
+            placeholder="Course Description"
+            formControlName="description"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-select placeholder="Select category" formControlName="category">
+            <mat-option value="BEGINNER"> Beginner</mat-option>
+            <mat-option value="INTERMEDIATE"> Intermediate</mat-option>
+            <mat-option value="ADVANCED"> Advanced</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <input
+            matInput
+            placeholder="Date"
+            [matDatepicker]="myDatepicker"
+            formControlName="releasedAt"
+          />
+
+          <mat-datepicker-toggle matSuffix [for]="myDatepicker">
+          </mat-datepicker-toggle>
+
+          <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <textarea
+            matInput
+            placeholder="Description"
+            formControlName="longDescription"
+          >
+          </textarea>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
