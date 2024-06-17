@@ -8,14 +8,15 @@ export type FormComposerConfig = {
       label: string;
       required: boolean;
       colWidth?: number;
+      elementWidth?: FormComposerElementWidth;
       validators?: Validator[];
       selectOptions?: [
         {
           value: string;
           label: string;
-        }
+        },
       ];
-    }
+    },
   ];
 };
 
@@ -25,3 +26,5 @@ export enum FormComposerControlType {
   TEXTAREA = 'textarea',
   DATEPICKER = 'datepicker',
 }
+
+export type FormComposerElementWidth = 25 | 50 | 75 | 100;

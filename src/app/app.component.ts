@@ -53,6 +53,7 @@ export class AppComponent {
         label: 'Name Label',
         required: true,
         colWidth: 6,
+        elementWidth: 50,
       },
     ],
   };

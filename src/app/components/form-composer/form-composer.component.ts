@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FormComposerConfig } from '../../models';
+import { FormComposerConfig, FormComposerControlType } from '../../models';
 
 @Component({
   selector: 'form-composer',
@@ -44,6 +44,7 @@ export class FormComposerComponent {
   formConfig = input.required<FormComposerConfig>();
 
   form!: FormGroup;
+  protected FormComposerControlType = FormComposerControlType;
 
   constructor() {
     effect(() => {
@@ -56,7 +57,7 @@ export class FormComposerComponent {
     this.formConfig().controls.forEach((control) => {
       this.form.addControl(
         control.name,
-        this.fb.control(null, control.required ? Validators.required : null)
+        this.fb.control(null, control.required ? Validators.required : null),
       );
     });
   }
