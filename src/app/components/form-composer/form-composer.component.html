@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <form [formGroup]="form">
+    <div class="row">
+      @for (control of formConfig().controls; track $index) {
+        @switch (control.type) {
+          @case ("input") {
+            <div
+              class="col-{{ control?.colWidth ? control.colWidth : 'auto' }}"
+            >
+              <mat-form-field class="w-100">
+                <input
+                  matInput
+                  [placeholder]="control.label"
+                  [formControlName]="control.name"
+                />
+              </mat-form-field>
+            </div>
+          }
+        }
+      }
+    </div>
+  </form>
+</div>
